@@ -12,13 +12,21 @@
     "format": "bun prettier . --write",
     "db:push": "drizzle-kit push:pg",
     "db:introspect": "drizzle-kit introspect:pg",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:generate_push": "drizzle-kit generate:pg && drizzle-kit push:pg",
     "db:studio": "drizzle-kit studio --port 3001 --verbose",
-    "shadcn:add": "pnpm dlx shadcn-ui@latest add"
+    "shadcn:add": "pnpm dlx shadcn-ui@latest add",
+    "seed": "tsx prisma/seed.ts",
+    "prisma:migrate": "bun run prisma:import && prisma migrate dev",
+    "prisma:deploy": "bun run prisma:import && prisma migrate deploy",
+    "prisma:import": "prisma-import --schemas 'prisma/models/*.prisma' --force",
+    "prisma:generate": "bun run prisma:import && prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.12",
     "@hookform/resolvers": "^3.3.4",
     "@nextui-org/react": "^2.4.8",
+    "@prisma/client": "^5.21.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
@@ -64,6 +72,7 @@
     "next": "14.2.1",
     "next-themes": "^0.3.0",
     "postgres": "^3.4.4",
+    "prisma-import": "^1.0.5",
     "react": "^18",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
@@ -79,7 +88,7 @@
     "zod": "^3.22.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^22.7.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "drizzle-kit": "^0.20.14",
@@ -87,14 +96,24 @@
     "eslint-config-next": "14.2.1",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.0.11",
+    "i": "^0.3.7",
     "lint-staged": "^15.2.2",
     "postcss": "^8",
     "prettier": "^3.2.5",
+    "prisma": "^5.21.1",
     "semantic-release": "^23.0.8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "prisma": {
+    "import": {
+      "schemas": "prisma/models/*.prisma",
+      "output": "prisma/schema.prisma",
+      "force": true
+    }
   }
 }
