@@ -2,7 +2,7 @@
 
 This is an open source starter template for Next.js applications.
 
-[![Jetpack](./public/images/jetpack-logo.png)](https://tryjetpack.dev/)
+[![Jetpack](./public/images/jetpack-logo.png)](https://oala.dev)
 
 > **Important note**
 > The project is set up to use Docker, however an existing issue with Bun prevents the container from running. Please see https://github.com/oven-sh/bun/issues/5648 for more details. For now, the project is deployed with [Vercel](https://vercel.com).

@@ -10,6 +10,7 @@ import { type getGithubStars } from "@/lib/actions/github";
 import { ContentSection } from "@/components/content-section";
 import { Technologies } from "@/components/technologies";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
+import { MoveRight, PhoneCall } from "lucide-react";
 
 interface MainProps {
   githubStarsPromise: ReturnType<typeof getGithubStars>;
@@ -20,58 +21,31 @@ export async function Main({ githubStarsPromise }: MainProps) {
   const githubStars = Promise.resolve(githubStarsPromise);
 
   return (
-    <Shell className="max-w-6xl">
-      <section className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-4 py-24 text-center md:py-32">
-        <div
-          className="flex animate-fade-up flex-col space-y-2"
-          style={{ animationDelay: "0.10s", animationFillMode: "both" }}
-        >
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
-            <Badge
-              aria-hidden="true"
-              className="rounded-full px-3.5 py-1.5"
-              variant="secondary"
-            >
-              <Icons.github className="mr-2 size-3.5" aria-hidden="true" />
-              {githubStars} stars on GitHub
-            </Badge>
-            <span className="sr-only">GitHub</span>
-          </Link>
-        </div>
-        <h1
-          className="animate-fade-up text-balance font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
-          style={{ animationDelay: "0.20s", animationFillMode: "both" }}
-        >
-          Boost your productivity with{" "}
-          <span className="text-primary">Jetpack</span>
-        </h1>
-        <p
-          className="max-w-2xl animate-fade-up text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
-          style={{ animationDelay: "0.30s", animationFillMode: "both" }}
-        >
-          Turbocharge your development with a modern, typesafe Next.js template
-        </p>
-        <div
-          className="flex animate-fade-up flex-wrap items-center justify-center gap-4"
-          style={{ animationDelay: "0.40s", animationFillMode: "both" }}
-        >
-          <Button asChild>
-            <Link
-              href="https://github.com/slawton3/jetpack"
-              target="_blank"
-              className="cursor-pointer flex items-center"
-            >
-              Clone now{" "}
-              <ExternalLinkIcon className="ml-2 size-4" aria-hidden="true" />
-              <span className="sr-only">Clone now</span>
-            </Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link href="/demo">
-              Learn more
-              <span className="sr-only">Learn more</span>
-            </Link>
-          </Button>
+    <Shell className="max-w-8xl">
+      <section className="mx-auto flex w-full flex-col items-center justify-center gap-4 text-center">
+        <div className="lg:grid gap-8 items-center lg:grid-cols-2 w-full flex flex-col-reverse">
+          <div className="flex gap-4 flex-col">
+            <div className="flex gap-4 flex-col font-serif">
+              <h1 className="text-5xl md:text-7xl max-w-lg tracking-tighter text-left font-regular">
+                This is the start of something!
+              </h1>
+              <p className="text-xl leading-relaxed tracking-tight text-muted-foreground max-w-md text-left">
+                Managing a small business today is already tough. Avoid further
+                complications by ditching outdated, tedious trade methods. Our
+                goal is to streamline SMB trade, making it easier and faster
+                than ever.
+              </p>
+            </div>
+            <div className="flex flex-row gap-4">
+              <Button size="lg" className="gap-4" variant="outline">
+                Jump on a call <PhoneCall className="w-4 h-4" />
+              </Button>
+              <Button size="lg" className="gap-4">
+                Sign up here <MoveRight className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+          <div className="bg-muted rounded-md aspect-square"></div>
         </div>
       </section>
 

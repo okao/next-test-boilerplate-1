@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Sean Lawton",
-      url: "https://www.tryjetpack.dev",
+      url: "",
     },
   ],
   creator: "Sean Lawton",
@@ -81,12 +81,12 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
             <NextUIWrappedProvider>
               <ThemeProvider
                 attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                {children}
+              </ThemeProvider>
             </NextUIWrappedProvider>
             <Toaster />
           </body>
